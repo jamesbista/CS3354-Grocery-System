@@ -1,24 +1,37 @@
 import java.util.Scanner;
 
+/**
+ * Grocery Management System using parallel arrays for item names, prices, and
+ * stock quantities.
+ */
 public class GrocerySystem {
 
-    // Temporary Sample Method for Testing
-    // Will be replaced by TeamMate 1
+    /**
+     * Prints the inventory by iterating through the parallel arrays.
+     * Only prints slots that are not empty (names[i] != null).
+     *
+     * @param names  item names array
+     * @param prices item prices array
+     * @param stocks item stock array
+     */
     public static void printInventory(String[] names, double[] prices, int[] stocks) {
-        System.out.println("Inventory feature will be added by teammate.");
-        for (int i = 0; i < names.length; i++)
-        {
-
-            if(names[i] != null)
-            {
+        for (int i = 0; i < names.length; i++) {
+            if (names[i] != null) {
                 System.out.println("Item: " + names[i] + " | Price: $" + prices[i] + " | Stock: " + stocks[i]);
             }
-
         }
     }
 
-    // Temporary Sample Method for Testing
-    // Will be replaced by TeamMate 2
+    /**
+     * Restocks an item by searching for the target name in the names array.
+     * If found, adds the amount to the stock at the same index.
+     * If not found, prints "Item not found."
+     *
+     * @param names  item names array
+     * @param stocks item stock array
+     * @param target item name to search for
+     * @param amount amount to add
+     */
     public static void restockItem(String[] names, int[] stocks, String target, int amount) {
         boolean found = false;
 
@@ -30,19 +43,25 @@ public class GrocerySystem {
                 break;
             }
         }
-        
+
         if (!found) {
             System.out.println("Item not found.");
         }
     }
 
+    /**
+     * Runs the user menu to display inventory and restocks
+     *
+     * @param args command-line arguments
+     */
     public static void main(String[] args) {
 
+        // Parallel arrays as asked in requirement
         String[] itemNames = new String[10];
         double[] itemPrices = new double[10];
         int[] itemStocks = new int[10];
 
-        //Items for the arrays can be modified if need be
+        // Sample data for testing
         itemNames[0] = "Carrot";
         itemPrices[0] = 2.00;
         itemStocks[0] = 5;
@@ -72,8 +91,7 @@ public class GrocerySystem {
 
             if (choice == 1) {
                 printInventory(itemNames, itemPrices, itemStocks);
-            } 
-            else if (choice == 2) {
+            } else if (choice == 2) {
                 System.out.print("Enter item name: ");
                 String target = sc.nextLine();
 
@@ -82,12 +100,10 @@ public class GrocerySystem {
                 sc.nextLine();
 
                 restockItem(itemNames, itemStocks, target, amount);
-            } 
-            else if (choice == 3) {
+            } else if (choice == 3) {
                 System.out.println("Goodbye!");
                 break;
-            } 
-            else {
+            } else {
                 System.out.println("Invalid option.");
             }
         }
