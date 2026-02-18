@@ -2,13 +2,22 @@ import java.util.Scanner;
 
 public class GrocerySystem {
 
-    // Temporary Sample Mathod for Testing
+    // Temporary Sample Method for Testing
     // Will be replaced by TeamMate 1
     public static void printInventory(String[] names, double[] prices, int[] stocks) {
         System.out.println("Inventory feature will be added by teammate.");
+        for (int i = 0; i < names.length; i++)
+        {
+
+            if(names[i] != null)
+            {
+                System.out.println("Item: " + names[i] + " | Price: $" + prices[i] + " | Stock: " + stocks[i]);
+            }
+
+        }
     }
 
-    // Temporary Sample Mathod for Testing
+    // Temporary Sample Method for Testing
     // Will be replaced by TeamMate 2
     public static void restockItem(String[] names, int[] stocks, String target, int amount) {
         boolean found = false;
@@ -32,6 +41,23 @@ public class GrocerySystem {
         String[] itemNames = new String[10];
         double[] itemPrices = new double[10];
         int[] itemStocks = new int[10];
+
+        //Items for the arrays can be modified if need be
+        itemNames[0] = "Carrot";
+        itemPrices[0] = 2.00;
+        itemStocks[0] = 5;
+
+        itemNames[1] = "Apple";
+        itemPrices[1] = 1.00;
+        itemStocks[1] = 10;
+
+        itemNames[2] = "Cookie";
+        itemPrices[2] = 3.25;
+        itemStocks[2] = 25;
+
+        itemNames[3] = "Candy Bar";
+        itemPrices[3] = 0.25;
+        itemStocks[3] = 70;
 
         Scanner sc = new Scanner(System.in);
 
