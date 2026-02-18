@@ -11,7 +11,20 @@ public class GrocerySystem {
     // Temporary Sample Mathod for Testing
     // Will be replaced by TeamMate 2
     public static void restockItem(String[] names, int[] stocks, String target, int amount) {
-        System.out.println("Restock feature will be added by teammate.");
+        boolean found = false;
+
+        for (int i = 0; i < names.length; i++) {
+            if (names[i] != null && names[i].equalsIgnoreCase(target)) {
+                stocks[i] += amount;
+                System.out.println(target + " restocked successfully!");
+                found = true;
+                break;
+            }
+        }
+        
+        if (!found) {
+            System.out.println("Item not found.");
+        }
     }
 
     public static void main(String[] args) {
@@ -36,10 +49,13 @@ public class GrocerySystem {
             } 
             else if (choice == 2) {
                 System.out.print("Enter item name: ");
-                sc.nextLine();
+                String target = sc.nextLine();
+
                 System.out.print("Enter amount: ");
-                sc.nextInt();
-                restockItem(itemNames, itemStocks, "", 0);
+                int amount = sc.nextInt();
+                sc.nextLine();
+
+                restockItem(itemNames, itemStocks, target, amount);
             } 
             else if (choice == 3) {
                 System.out.println("Goodbye!");
